@@ -1,10 +1,10 @@
 s=str(input('Введите строку:'))
 smax=-1000
 new=''
-mass=s.split('*')
+mass=s.split('')
 print(mass)
 if len(mass)>=3:
-    for i in range(len(mass)):
+    for i in range(1,len(mass)-1):
         if len(mass[i])>smax:
             smax=len(mass[i])
             new=mass[i]
