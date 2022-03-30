@@ -37,6 +37,7 @@ def output_5_len(dic):
     for i in dic:
         if len(i) < 5:
             print(i, end=' ')
+            print()
 
 
 def clear():
@@ -66,6 +67,7 @@ def changepair(dic):
     keyw = input('Введите ключ который хотите поменять:')
     if keyw in dic:
         key= input('Введите новое значение для слова:')
+        dic[keyw].clear()
         dic[keyw].append(key)
     else:
         print("Данного слова нет в словаре")
@@ -98,7 +100,7 @@ choise = int(input('Выберите действие со словарем:\n'
                    '9)поменять ключ и значение\n'
                    'Ваш выбор:'))
 try:
-    if 1 <= choise <= 9:
+    while 1<=choise<=9:
         if choise == 1:
             addpair(dic)
         elif choise == 2:
@@ -117,6 +119,17 @@ try:
             changepair(dic)
         else:
             key_to_value()
+        choise = int(input('Выберите действие со словарем:\n'
+                           '1)добавать пару\n'
+                           '2)удалить\n'
+                           '3)проверить есть ли уже в базе\n'
+                           '4)вывести слова на англ короче 5 симвлов\n'
+                           '5)очистить словарь\n'
+                           '6)отсортировать словарь\n'
+                           '7)вывести весь словарь\n'
+                           '8)изменить пару \n'
+                           '9)поменять ключ и значение\n'
+                           'Ваш выбор:'))
     else:
         print("Нет такой функции")
 except ValueError:
