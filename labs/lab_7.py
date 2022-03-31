@@ -8,10 +8,15 @@ def addpair(dic):
     """Добавление пары"""
     slovo = input('Введите новое слово на английском:')
     value = input('Введите перевод слова:')
+    x=value.split(',')
+    print(x)
     if slovo in dic:
-        dic[slovo].append(value)
+        for i in range(len(x)):
+            dic[slovo].append(x[i])
     else:
-        dic[slovo]=[value]
+        dic[slovo]=x
+
+
     print(dic)
 
 
@@ -80,14 +85,13 @@ def key_to_value():
     dic2={}
     for slovo in dic.values():
         for j in range(len(slovo)):
-            dic2[slovo[j]] = None
+            dic2[slovo[j]] = []
     for value in dic2.keys():
         for key in dic.keys():
             if value in dic[key]:
-                dic2[value] = key
-    print(dic2)
+                dic2[value].append(key)
 
-
+    dic=dic2
 choise = int(input('Выберите действие со словарем:\n'
                    '1)добавать пару\n'
                    '2)удалить\n'
